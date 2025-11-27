@@ -19,7 +19,10 @@ const TestimonialsSection = () => {
   const themeSvgs = {
     theme1: '/circle-gradient-purple.svg',
     theme2: '/circle-gradient-red.svg', 
-    theme3: '/circle-gradient-blue.svg'
+    theme3: '/circle-gradient-blue.svg',
+    theme4: '/circle-gradient-orange.svg',
+    theme5: '/circle-gradient-green.svg',
+    theme6: '/circle-gradient-brown.svg'
   };
 
   // Detect theme changes

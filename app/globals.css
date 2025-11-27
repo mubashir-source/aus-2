@@ -30,6 +30,20 @@
   --primary-blue: #009BFF;
 }
 
+[data-theme="theme4"] {
+  --primary-dark: #2A2E32;
+  --primary-blue: #F57921;
+}
+
+[data-theme="theme5"] {
+  --primary-dark: #1E1E1E;
+  --primary-blue: #1B8A5A;
+}
+[data-theme="theme6"] {
+  --primary-dark: #4B2E39;
+  --primary-blue: #8B5E3C;
+}
+
 /* Light mode theme variables */
 
 
