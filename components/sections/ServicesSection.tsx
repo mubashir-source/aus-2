@@ -74,7 +74,7 @@ const ServicesSection = () => {
                     <span 
                       className="text-3xl sm:text-4xl lg:text-6xl font-bold" 
                       style={{
-                        WebkitTextStroke: '1px var(--color-primary-dark)',
+                        WebkitTextStroke: '1px var(--primary-dark)',
                         WebkitTextFillColor: 'transparent',
                         color: 'transparent'
                       }}

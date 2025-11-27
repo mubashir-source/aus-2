@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
@@ -13,6 +13,41 @@ import 'swiper/css/pagination';
 
 const TestimonialsSection = () => {
   const swiperRef = useRef<SwiperType>(null);
+  const [currentTheme, setCurrentTheme] = useState('theme1');
+
+  // Theme to SVG mapping
+  const themeSvgs = {
+    theme1: '/circle-gradient-purple.svg',
+    theme2: '/circle-gradient-red.svg', 
+    theme3: '/circle-gradient-blue.svg'
+  };
+
+  // Detect theme changes
+  useEffect(() => {
+    const detectTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme') || 'theme1';
+      setCurrentTheme(theme);
+    };
+
+    // Initial detection
+    detectTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          detectTheme();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const testimonials = [
     {
@@ -62,9 +97,21 @@ const TestimonialsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Image */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-96">
+            {/* SVG Background */}
+            <div className="absolute -inset-8 sm:-inset-12 lg:-inset-16 z-0 opacity-30">
               <Image
-                src="/imagecontainer.png"
+                src={themeSvgs[currentTheme as keyof typeof themeSvgs]}
+                alt="Background decoration"
+                width={573}
+                height={486}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
+            {/* Main Image */}
+            <div className="relative rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-96 z-10">
+              <Image
+                src="/happy-couple-tourist-hand-pointing-copy-space-with-baggage-going-travel-holidays.png"
                 alt="Business professionals"
                 width={500}
                 height={500}

@@ -1,13 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-dark: #002035;
-  --color-primary-blue: #009BFF;
+  --color-primary-dark: #7339A0;
+  --color-primary-blue: #3F1E57;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-dark: #3F1E57;
+  --primary-blue: #7339A0;
+}
+
+/* Theme 1 - Purple Theme (Default) */
+[data-theme="theme1"] {
+  --primary-dark: #3F1E57;
+  --primary-blue: #7339A0;
+}
+
+/* Theme 2 - Red Theme */
+[data-theme="theme2"] {
+  --primary-dark: #1E1E1E;
+  --primary-blue: #D10008;
+}
+
+/* Theme 3 - Original Blue Theme */
+[data-theme="theme3"] {
   --primary-dark: #002035;
   --primary-blue: #009BFF;
 }
@@ -21,6 +39,156 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Override Tailwind classes to use our CSS custom properties */
+.bg-primary-dark {
+  background-color: var(--primary-dark) !important;
+}
+
+.bg-primary-blue {
+  background-color: var(--primary-blue) !important;
+}
+
+.text-primary-dark {
+  color: var(--primary-dark) !important;
+}
+
+.text-primary-blue {
+  color: var(--primary-blue) !important;
+}
+
+.hover\:bg-primary-dark:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+.hover\:bg-primary-blue:hover {
+  background-color: var(--primary-blue) !important;
+}
+
+.hover\:text-primary-dark:hover {
+  color: var(--primary-dark) !important;
+}
+
+.hover\:text-primary-blue:hover {
+  color: var(--primary-blue) !important;
+}
+
+.border-primary-dark {
+  border-color: var(--primary-dark) !important;
+}
+
+.border-primary-blue {
+  border-color: var(--primary-blue) !important;
+}
+
+.hover\:border-primary-blue:hover {
+  border-color: var(--primary-blue) !important;
+}
+
+/* Background colors with opacity */
+.bg-primary-blue\/50 {
+  background-color: color-mix(in srgb, var(--primary-blue) 50%, transparent) !important;
+}
+
+.bg-primary-dark\/50 {
+  background-color: color-mix(in srgb, var(--primary-dark) 50%, transparent) !important;
+}
+
+.bg-primary-blue\/20 {
+  background-color: color-mix(in srgb, var(--primary-blue) 20%, transparent) !important;
+}
+
+.bg-primary-dark\/20 {
+  background-color: color-mix(in srgb, var(--primary-dark) 20%, transparent) !important;
+}
+
+.bg-primary-blue\/80 {
+  background-color: color-mix(in srgb, var(--primary-blue) 80%, transparent) !important;
+}
+
+.bg-primary-dark\/80 {
+  background-color: color-mix(in srgb, var(--primary-dark) 80%, transparent) !important;
+}
+
+/* Hover states for opacity backgrounds */
+.hover\:bg-primary-blue\/80:hover {
+  background-color: color-mix(in srgb, var(--primary-blue) 80%, transparent) !important;
+}
+
+.hover\:bg-primary-dark\/80:hover {
+  background-color: color-mix(in srgb, var(--primary-dark) 80%, transparent) !important;
+}
+
+/* Theme-aware section backgrounds */
+.bg-theme-light {
+  background-color: color-mix(in srgb, var(--primary-blue) 5%, #ffffff) !important;
+}
+
+.bg-theme-medium {
+  background-color: color-mix(in srgb, var(--primary-blue) 10%, #ffffff) !important;
+}
+
+/* Override hardcoded blue backgrounds to use theme colors */
+.bg-blue-50 {
+  background-color: color-mix(in srgb, var(--primary-blue) 8%, #ffffff) !important;
+}
+
+.bg-blue-600 {
+  background-color: var(--primary-blue) !important;
+}
+
+.bg-blue-500 {
+  background-color: color-mix(in srgb, var(--primary-blue) 90%, #000000) !important;
+}
+
+.hover\:bg-blue-400:hover {
+  background-color: color-mix(in srgb, var(--primary-blue) 80%, #ffffff) !important;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: color-mix(in srgb, var(--primary-blue) 90%, #000000) !important;
+}
+
+/* Keep gray backgrounds neutral but slightly tinted */
+.bg-gray-50 {
+  background-color: color-mix(in srgb, var(--primary-dark) 3%, #f9fafb) !important;
+}
+
+/* Gradient backgrounds using theme colors */
+.bg-gradient-to-r.from-blue-600.to-blue-800 {
+  background: linear-gradient(to right, var(--primary-blue), var(--primary-dark)) !important;
+}
+
+/* Text colors */
+.text-blue-300 {
+  color: color-mix(in srgb, var(--primary-blue) 70%, #ffffff) !important;
+}
+
+.text-blue-600 {
+  color: var(--primary-blue) !important;
+}
+
+.hover\:text-blue-600:hover {
+  color: var(--primary-blue) !important;
+}
+
+/* Additional blue text colors */
+.text-blue-200 {
+  color: color-mix(in srgb, var(--primary-blue) 40%, #ffffff) !important;
+}
+
+.hover\:text-blue-200:hover {
+  color: color-mix(in srgb, var(--primary-blue) 40%, #ffffff) !important;
+}
+
+/* Border colors */
+.border-blue-500 {
+  border-color: var(--primary-blue) !important;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: var(--primary-dark) !important;
+}
+
 /* Swiper Custom Styles */
 .swiper-pagination-custom .swiper-pagination-bullet {
   width: 12px;
@@ -32,7 +200,7 @@ body {
 }
 
 .swiper-pagination-custom .swiper-pagination-bullet-active {
-  background: #009BFF;
+  background: var(--primary-blue);
   transform: scale(1.2);
 }
 
@@ -82,7 +250,7 @@ body {
 }
 
 .industry-pagination .swiper-pagination-bullet-active {
-  background: #009BFF;
+  background: var(--primary-blue);
   transform: scale(1.2);
   width:20px;
   border-radius: 10px;
@@ -99,7 +267,7 @@ body {
 }
 
 .products-pagination .swiper-pagination-bullet-active {
-  background: #009BFF;
+  background: var(--primary-blue);
   transform: scale(1.2);
   width: 20px;
   border-radius: 10px;
@@ -116,7 +284,7 @@ body {
 }
 
 .testimonials-pagination .swiper-pagination-bullet-active {
-  background: #009BFF;
+  background: var(--primary-blue);
   transform: scale(1.2);
   width: 20px;
   border-radius: 10px;
@@ -171,7 +339,7 @@ body {
 
 .animated-border {
   position: relative;
-  background: linear-gradient(90deg, #009BFF 0%, #002035 25%, #009BFF 50%, #002035 75%, #009BFF 100%);
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-dark) 25%, var(--primary-blue) 50%, var(--primary-dark) 75%, var(--primary-blue) 100%);
   background-size: 200% 200%;
   animation: borderAnimation 4s linear infinite;
   padding: 3px;
@@ -186,7 +354,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #009BFF, #002035, #009BFF, #002035);
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark), var(--primary-blue), var(--primary-dark));
   background-size: 400% 100%;
   animation: borderAnimation 3s ease-in-out infinite;
   border-radius: 1rem;
