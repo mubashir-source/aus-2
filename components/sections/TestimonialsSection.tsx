@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
@@ -13,44 +13,8 @@ import 'swiper/css/pagination';
 
 const TestimonialsSection = () => {
   const swiperRef = useRef<SwiperType>(null);
-  const [currentTheme, setCurrentTheme] = useState('theme1');
-
-  // Theme to SVG mapping
-  const themeSvgs = {
-    theme1: '/circle-gradient-purple.svg',
-    theme2: '/circle-gradient-red.svg', 
-    theme3: '/circle-gradient-blue.svg',
-    theme4: '/circle-gradient-orange.svg',
-    theme5: '/circle-gradient-green.svg',
-    theme6: '/circle-gradient-brown.svg'
-  };
-
-  // Detect theme changes
-  useEffect(() => {
-    const detectTheme = () => {
-      const theme = document.documentElement.getAttribute('data-theme') || 'theme1';
-      setCurrentTheme(theme);
-    };
-
-    // Initial detection
-    detectTheme();
-
-    // Watch for theme changes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-          detectTheme();
-        }
-      });
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme']
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  // Using purple theme SVG as the only theme
+  const purpleSvg = '/circle-gradient-purple.svg';
 
   const testimonials = [
     {
@@ -103,7 +67,7 @@ const TestimonialsSection = () => {
             {/* SVG Background */}
             <div className="absolute -inset-8 sm:-inset-12 lg:-inset-16 z-0 opacity-30">
               <Image
-                src={themeSvgs[currentTheme as keyof typeof themeSvgs]}
+                src={purpleSvg}
                 alt="Background decoration"
                 width={573}
                 height={486}

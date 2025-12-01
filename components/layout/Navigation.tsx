@@ -13,10 +13,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/' },
-    { name: 'Products / Categories', href: '/' },
-    { name: 'Vendors', href: '/' },
-    { name: 'Contact', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Products / Categories', href: '/products' },
+    { name: 'Vendors', href: '/vendor-registration' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -91,13 +91,16 @@ const Navigation = () => {
 
             {/* Action Buttons */}
             <div className="flex items-center space-x-3">
-              <button className="bg-primary-blue hover:bg-primary-dark text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200">
+              <Link href="/contact" className="bg-primary-blue hover:bg-primary-dark text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200">
                 Request a Quote
-              </button>
-              <button className="bg-primary-dark hover:bg-primary-blue text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 flex items-center">
+              </Link>
+              <Link
+                href="/vendor-registration"
+                className="bg-primary-dark hover:bg-primary-blue text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 flex items-center"
+              >
                 <AiFillLock className="w-4 h-4 mr-1" />
                 Vendor Registration
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -161,9 +164,12 @@ const Navigation = () => {
                 <button className="w-full bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded text-sm font-medium mb-2 transition-colors duration-200">
                   Request a Quote
                 </button>
-                <button className="w-full bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-200">
+                <a 
+                  href="/vendor-registration"
+                  className="w-full bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-200 block text-center"
+                >
                   Vendor Registration
-                </button>
+                </a>
               </div>
             </div>
           </div>

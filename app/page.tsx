@@ -7,12 +7,9 @@ import TrustSection from "../components/sections/TrustSection";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import LogoSliderSection from "../components/sections/LogoSliderSection";
 import FAQSection from "../components/sections/FAQSection";
-import ThemeToggle from "../components/ThemeToggle";
-
 export default function Home() {
   return (
     <div>
-      <ThemeToggle />
       <HeroSlider />
       <IndustrySection />
       <ServicesSection />

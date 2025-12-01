@@ -1,6 +1,10 @@
 import ProductsSection from "../../components/sections/ProductsSection";
+import Breadcrumb from "../../components/ui/Breadcrumb";
 
 export default function Products() {
+  const breadcrumbItems = [
+    { label: 'Products' }
+  ];
   const featuredProducts = [
     {
       name: "Professional Office Chair",
@@ -49,12 +53,20 @@ export default function Products() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Discover our comprehensive range of high-quality products designed to meet all your business needs.
-          </p>
+      <section className="bg-gradient-to-r from-primary-blue to-primary-dark text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb items={breadcrumbItems} className="text-white/80" />
+          </div>
+          
+          {/* Header Content */}
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
+            <p className="text-xl max-w-3xl mx-auto text-white/90">
+              Discover our comprehensive range of high-quality products designed to meet all your business needs.
+            </p>
+          </div>
         </div>
       </section>
 

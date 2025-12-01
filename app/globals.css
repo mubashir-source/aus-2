@@ -12,37 +12,7 @@
   --primary-blue: #7339A0;
 }
 
-/* Theme 1 - Purple Theme (Default) */
-[data-theme="theme1"] {
-  --primary-dark: #3F1E57;
-  --primary-blue: #7339A0;
-}
-
-/* Theme 2 - Red Theme */
-[data-theme="theme2"] {
-  --primary-dark: #1E1E1E;
-  --primary-blue: #D10008;
-}
-
-/* Theme 3 - Original Blue Theme */
-[data-theme="theme3"] {
-  --primary-dark: #002035;
-  --primary-blue: #009BFF;
-}
-
-[data-theme="theme4"] {
-  --primary-dark: #2A2E32;
-  --primary-blue: #F57921;
-}
-
-[data-theme="theme5"] {
-  --primary-dark: #1E1E1E;
-  --primary-blue: #1B8A5A;
-}
-[data-theme="theme6"] {
-  --primary-dark: #4B2E39;
-  --primary-blue: #8B5E3C;
-}
+/* Purple Theme (Default and Only Theme) */
 
 /* Light mode theme variables */
 
@@ -413,4 +383,9 @@ body {
     height: 10px;
     margin: 0 5px;
   }
+}
+
+/* Social Media Icons Hover Fix */
+.social-icon-link:hover svg {
+  color: white !important;
 }
