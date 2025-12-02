@@ -30,7 +30,7 @@ const Navigation = () => {
             <div className="flex justify-center py-2">
               <Link href="/">
                 <Image 
-                  src="/logocontainer.png" 
+                  src="/logo02.png" 
                   alt="logo" 
                   width={100} 
                   height={100} 
@@ -80,7 +80,7 @@ const Navigation = () => {
             <div className="flex items-center">
               <Link href="/">
                 <Image 
-                  src="/logocontainer.png" 
+                  src="/logo02.png" 
                   alt="logo" 
                   width={100} 
                   height={100} 
