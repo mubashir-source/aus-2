@@ -81,9 +81,8 @@ const VendorRegistrationForm = () => {
       const xhr = new XMLHttpRequest();
       
       return new Promise((resolve, reject) => {
-        xhr.open('GET', 'https://us-states.p.rapidapi.com/basic');
-        xhr.setRequestHeader('x-rapidapi-key', '76bfa63c81mshad17837ef2fe086p18ca98jsn90a6771ad7ae');
-        xhr.setRequestHeader('x-rapidapi-host', 'us-states.p.rapidapi.com');
+        xhr.open('GET', 'https://api.countrystatecity.in/v1/countries/IN/states');
+        xhr.setRequestHeader('X-CSCAPI-KEY', 'cmZMb2d5Mld4MVRveDB5SzVCMXpLa0hLeFZBQkhsU29GTE1FU05LNA==');
         
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {

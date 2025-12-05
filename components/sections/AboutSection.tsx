@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const AboutSection = () => {
   return (
     <section className="py-16 bg-white">
@@ -5,51 +7,54 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              About Alpha Universal Supplies
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+            Where Quality Meets Convenience, and Every Business Is Served With Excellence
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              With over a decade of experience in the supply industry, Alpha Universal Supplies 
-              has established itself as a trusted partner for businesses across various sectors. 
-              We specialize in providing high-quality products and exceptional service to meet 
-              the diverse needs of our clients.
+            At Alpha Universal Supplies (AUS), we are committed to creating a smooth and reliable purchasing experience for every business. Whether you are a restaurant, salon, corporate office, hotel, construction firm, retailer, or medical facility, we make sure you always get the high-quality products you need — on time, at competitive prices, and with a service experience that feels personal.
             </p>
-            <p className="text-lg text-gray-600 mb-8">
-              Our commitment to excellence, reliability, and customer satisfaction has made us 
-              a preferred choice for companies looking for dependable supply solutions. We work 
-              closely with our vendors and clients to ensure seamless operations and optimal results.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
-                <div className="text-gray-600">Happy Clients</div>
+            <div className="space-y-3 lg:space-y-4">
+              <div className="flex items-center space-x-3 bg-white rounded-lg p-3 lg:p-4 shadow-sm">
+                <div className="w-5 h-5 lg:w-6 lg:h-6 bg-primary-blue rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base lg:text-[18px] font-semibold text-gray-900 mb-1">Lorem Ipsum</h3>
+                  <p className="text-gray-600 text-xs lg:text-[14px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">10+</div>
-                <div className="text-gray-600">Years Experience</div>
+
+              <div className="flex items-center space-x-3 bg-white rounded-lg p-3 lg:p-4 shadow-sm">
+                <div className="w-5 h-5 lg:w-6 lg:h-6 bg-primary-blue rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base lg:text-[18px] font-semibold text-gray-900 mb-1">Lorem Ipsum</h3>
+                  <p className="text-gray-600 text-xs lg:text-[14px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
-                <div className="text-gray-600">Products</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                <div className="text-gray-600">Trusted Vendors</div>
+
+              <div className="flex items-center space-x-3 bg-white rounded-lg p-3 lg:p-4 shadow-sm">
+                <div className="w-5 h-5 lg:w-6 lg:h-6 bg-primary-blue rounded-full flex items-center justify-center shrink-0 mt-1">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base lg:text-[18px] font-semibold text-gray-900 mb-1">Lorem Ipsum</h3>
+                  <p className="text-gray-600 text-xs lg:text-[14px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Image Placeholder */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-96 flex items-center justify-center">
-              <div className="text-center">
-                <svg className="w-24 h-24 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0h2M7 7h10M7 11h10M7 15h10" />
-                </svg>
-                <p className="text-blue-600 font-semibold">Company Image</p>
-              </div>
-            </div>
+            <Image src="/about-image.png" alt="About Image" width={500} height={500} className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
