@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
+import Link from 'next/link';
 import { GoDotFill } from "react-icons/go";
 
 
@@ -72,9 +73,12 @@ const IndustrySection = () => {
             </p>
           </div>
           <div className="hidden md:block">
-            <button className="bg-primary-blue hover:bg-primary-dark text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-medium transition-all duration-300 text-sm lg:text-base">
+            <Link 
+              href="/products"
+              className="bg-primary-blue hover:bg-primary-dark text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-medium transition-all duration-300 text-sm lg:text-base inline-block"
+            >
               View All Categories
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -107,7 +111,10 @@ const IndustrySection = () => {
           >
             {categories.map((category) => (
               <SwiperSlide key={category.id}>
-                <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform h-48 sm:h-56 lg:h-64 group cursor-pointer">
+                <Link 
+                  href={`/products?category=${encodeURIComponent(category.title)}`}
+                  className="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform h-48 sm:h-56 lg:h-64 group cursor-pointer"
+                >
                   {/* Background Image */}
                   <Image
                     src={category.image}
@@ -137,7 +144,7 @@ const IndustrySection = () => {
                       {category.description}
                     </p>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -149,9 +156,12 @@ const IndustrySection = () => {
 
         {/* Mobile CTA */}
         <div className="md:hidden text-center mt-8">
-          <button className="bg-primary-blue hover:bg-primary-dark text-white px-6 py-3 rounded-full font-medium transition-all duration-300">
+          <Link 
+            href="/products"
+            className="bg-primary-blue hover:bg-primary-dark text-white px-6 py-3 rounded-full font-medium transition-all duration-300 inline-block"
+          >
             View All Categories
-          </button>
+          </Link>
         </div>
       </div>
     </section>

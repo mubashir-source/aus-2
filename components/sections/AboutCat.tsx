@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
 const categories = [
   {
@@ -69,9 +70,10 @@ const AboutCat = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {categories.map((category) => (
-            <div
+            <Link
               key={category.id}
-              className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform h-48 sm:h-56 lg:h-64 group cursor-pointer"
+              href={`/products?category=${encodeURIComponent(category.title)}`}
+              className="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform h-48 sm:h-56 lg:h-64 group cursor-pointer"
             >
               {/* Background Image */}
               <Image
@@ -112,7 +114,7 @@ const AboutCat = () => {
                   {category.description}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

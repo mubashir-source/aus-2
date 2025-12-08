@@ -55,9 +55,10 @@ const ProductsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {productCategories.map((category, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              href={`/products?category=${encodeURIComponent(category.title)}`}
+              className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="p-6">
                 <div className="text-4xl mb-4 text-center">{category.image}</div>
@@ -78,7 +79,7 @@ const ProductsSection = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

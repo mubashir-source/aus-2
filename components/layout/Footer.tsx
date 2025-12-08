@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { LuMail, LuMapPinned } from "react-icons/lu";
+
 const Footer = () => {
   return (
     <footer className="bg-primary-dark text-white">
@@ -52,17 +54,17 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-primary-blue transition-colors text-sm">
+                <Link href="/legal-notice" className="text-gray-300 hover:text-primary-blue transition-colors text-sm">
                   Legal Notice
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-gray-300 hover:text-primary-blue transition-colors text-sm">
+                <Link href="/privacy-policy" className="text-gray-300 hover:text-primary-blue transition-colors text-sm">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-gray-300 hover:text-primary-blue transition-colors text-sm">
+                <Link href="/terms-conditions" className="text-gray-300 hover:text-primary-blue transition-colors text-sm">
                   Terms & Conditions
                 </Link>
               </li>
@@ -76,22 +78,18 @@ const Footer = () => {
               {/* Customer Support */}
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <svg className="w-5 h-5 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
+<LuMapPinned className="w-5 h-5 text-primary-blue" />
                 </div>
                 <div>
-                  <h5 className="text-white font-medium text-[14px] mb-1">Customer Support</h5>
-                  <span className="text-white font-semibold text-[16px]">+1 56589 54598</span>
+                  <h5 className="text-white font-medium text-[14px] mb-1">Address</h5>
+                  <span className="text-white font-semibold text-[16px]">15500 Voss Rd Suite 240</span>
                 </div>
               </div>
 
               {/* Drop Us an Email */}
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <svg className="w-5 h-5 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                <LuMail className="w-5 h-5 text-primary-blue" />
                 </div>
                 <div>
                   <h5 className="text-white font-medium text-[14px] mb-1">Drop Us an Email</h5>
@@ -107,7 +105,7 @@ const Footer = () => {
                   </svg>
                 </div>
                 <div>
-                  <h5 className="text-white font-medium text-[14px] mb-1">Toll Free</h5>
+                  <h5 className="text-white font-medium text-[14px] mb-1">Customer Service</h5>
                   <span className="text-white font-semibold text-[16px]">+1 56569 54698</span>
                 </div>
               </div>
