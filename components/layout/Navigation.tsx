@@ -148,7 +148,7 @@ const Navigation = () => {
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-700">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-primary-blue">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -160,16 +160,16 @@ const Navigation = () => {
                 </Link>
               ))}
               {/* Mobile Action Buttons */}
-              <div className="pt-4 pb-3 border-t border-blue-500">
-                <button className="w-full bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded text-sm font-medium mb-2 transition-colors duration-200">
+              <div className="pt-4 pb-3 border-t border-primary-blue">
+                <Link href="/contact" className="w-full bg-white hover:bg-primary-dark hover:text-white text-primary-blue px-4 py-2 rounded text-sm font-medium mb-2 transition-colors duration-200 block text-center">
                   Request a Quote
-                </button>
-                <a 
+                </Link>
+                <Link 
                   href="/vendor-registration"
-                  className="w-full bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-200 block text-center"
+                  className="w-full bg-primary-dark hover:bg-white text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-200 block text-center"
                 >
                   Vendor Registration
-                </a>
+                </Link>
               </div>
             </div>
           </div>
