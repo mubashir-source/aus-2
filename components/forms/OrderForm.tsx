@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 interface Product {
   id: number;
@@ -31,8 +30,6 @@ const OrderForm = ({ onSubmit }: OrderFormProps) => {
     phone: '',
     email: ''
   });
-  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
-  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
 
   // Categories data
   const categories = [
@@ -193,55 +190,39 @@ const OrderForm = ({ onSubmit }: OrderFormProps) => {
       {/* Categories Selection */}
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Select Categories</h3>
-        <div className="relative">
-          <button
-            type="button"
-            onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
-            className="w-full flex items-center justify-between px-4 py-3 border border-gray-300 rounded-lg bg-white text-left focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-          >
-            <span className="text-gray-700">
-              {selectedCategories.length > 0 
-                ? `${selectedCategories.length} categories selected`
-                : 'Select categories...'}
-            </span>
-            <ChevronDownIcon className={`h-5 w-5 text-gray-400 transition-transform ${isCategoryDropdownOpen ? 'rotate-180' : ''}`} />
-          </button>
-          
-          {isCategoryDropdownOpen && (
-            <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-              {categories.map((category) => (
-                <label key={category} className="flex items-center px-4 py-3 hover:bg-gray-50 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={selectedCategories.includes(category)}
-                    onChange={() => handleCategoryToggle(category)}
-                    className="h-4 w-4 text-primary-blue focus:ring-primary-blue border-gray-300 rounded"
-                  />
-                  <span className="ml-3 text-gray-700">{category}</span>
-                </label>
-              ))}
-            </div>
-          )}
+        <p className="text-gray-600 mb-6">Choose one or more categories for your order</p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => handleCategoryToggle(category)}
+              className={`p-4 rounded-lg border-2 text-left transition-all duration-200 ${
+                selectedCategories.includes(category)
+                  ? 'border-primary-blue bg-primary-blue/10 text-primary-blue'
+                  : 'border-gray-200 bg-white text-gray-700 hover:border-primary-blue/50 hover:bg-primary-blue/5'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-medium">{category}</span>
+                {selectedCategories.includes(category) && (
+                  <div className="w-5 h-5 bg-primary-blue rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            </button>
+          ))}
         </div>
         
-        {/* Selected Categories Tags */}
         {selectedCategories.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {selectedCategories.map((category) => (
-              <span
-                key={category}
-                className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-primary-blue/10 text-primary-blue"
-              >
-                {category}
-                <button
-                  type="button"
-                  onClick={() => handleCategoryToggle(category)}
-                  className="ml-2 hover:text-primary-dark"
-                >
-                  <XMarkIcon className="h-4 w-4" />
-                </button>
-              </span>
-            ))}
+          <div className="mt-6 p-4 bg-green-50 rounded-lg">
+            <p className="text-green-800 font-medium">
+              ✓ {selectedCategories.length} categor{selectedCategories.length === 1 ? 'y' : 'ies'} selected
+            </p>
           </div>
         )}
       </div>
@@ -250,42 +231,54 @@ const OrderForm = ({ onSubmit }: OrderFormProps) => {
       {selectedCategories.length > 0 && (
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold text-gray-900 mb-4">Select Products</h3>
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 border border-gray-300 rounded-lg bg-white text-left focus:ring-2 focus:ring-primary-blue focus:border-transparent"
-            >
-              <span className="text-gray-700">
-                {selectedProducts.length > 0 
-                  ? `${selectedProducts.length} products selected`
-                  : 'Select products...'}
-              </span>
-              <ChevronDownIcon className={`h-5 w-5 text-gray-400 transition-transform ${isProductDropdownOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isProductDropdownOpen && (
-              <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg max-h-80 overflow-y-auto">
-                {availableProducts.map((product) => (
-                  <label key={product.id} className="flex items-center px-4 py-3 hover:bg-gray-50 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selectedProducts.includes(product.id)}
-                      onChange={() => handleProductToggle(product.id)}
-                      className="h-4 w-4 text-primary-blue focus:ring-primary-blue border-gray-300 rounded"
-                    />
-                    <div className="ml-3 flex items-center flex-1">
-                      <span className="text-2xl mr-3">{product.image}</span>
+          <p className="text-gray-600 mb-6">Choose products from your selected categories</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {availableProducts.map((product) => (
+              <button
+                key={product.id}
+                type="button"
+                onClick={() => handleProductToggle(product.id)}
+                className={`p-4 rounded-lg border-2 text-left transition-all duration-200 ${
+                  selectedProducts.includes(product.id)
+                    ? 'border-primary-blue bg-primary-blue/10'
+                    : 'border-gray-200 bg-white hover:border-primary-blue/50 hover:bg-primary-blue/5'
+                }`}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="text-3xl flex-shrink-0">{product.image}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between">
                       <div>
-                        <div className="font-medium text-gray-900">{product.name}</div>
-                        <div className="text-sm text-gray-500">{product.category}</div>
+                        <h4 className={`font-medium ${
+                          selectedProducts.includes(product.id) ? 'text-primary-blue' : 'text-gray-900'
+                        }`}>
+                          {product.name}
+                        </h4>
+                        <p className="text-sm text-gray-500 mt-1">{product.category}</p>
+                        <p className="text-sm text-gray-600 mt-2 line-clamp-2">{product.description}</p>
                       </div>
+                      {selectedProducts.includes(product.id) && (
+                        <div className="w-6 h-6 bg-primary-blue rounded-full flex items-center justify-center flex-shrink-0 ml-2">
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
-                  </label>
-                ))}
-              </div>
-            )}
+                  </div>
+                </div>
+              </button>
+            ))}
           </div>
+          
+          {selectedProducts.length > 0 && (
+            <div className="mt-6 p-4 bg-green-50 rounded-lg">
+              <p className="text-green-800 font-medium">
+                ✓ {selectedProducts.length} product{selectedProducts.length === 1 ? '' : 's'} selected
+              </p>
+            </div>
+          )}
         </div>
       )}
 
