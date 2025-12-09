@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -20,30 +21,48 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      title: "Medical Supplies & PPE",
-      subtitle: "Your Trusted Partner for Premium Wholesale Supplies",
-      description: "Alpha Universal Supplies (AUS) are trusted high-quality wholesale products across various including industrial, commercial, healthcare, hospitality and commercial.",
-      backgroundImage: "/images/slider/a2febbb8c29cae9617056e08d9030046f22cc9d4.png",
-      thumbnailImage: "/images/slider/a2febbb8c29cae9617056e08d9030046f22cc9d4.png",
-      buttonText: "Explore All Categories"
-    },
-    {
-      id: 2,
       title: "Cleaning Products",
-      subtitle: "Cleaning Products for Every Need",
-      description: "Comprehensive range of industrial equipment and supplies designed to meet the demanding requirements of modern manufacturing and industrial operations.",
+      subtitle: "Professional Cleaning Solutions for Every Need",
+      description: "Industrial and commercial cleaning solutions including disinfectants, sanitizing wipes, and professional-grade cleaners for all surfaces and environments.",
       backgroundImage: "/images/slider/bottles-with-detergent-cleaning-supplies-blue-space-text.jpg",
       thumbnailImage: "/images/slider/bottles-with-detergent-cleaning-supplies-blue-space-text.jpg",
       buttonText: "View Cleaning Products"
     },
     {
+      id: 2,
+      title: "Construction & Maintenance",
+      subtitle: "Professional Tools & Safety Equipment",
+      description: "Comprehensive range of construction tools, safety equipment, and maintenance supplies designed to meet demanding industrial requirements.",
+      backgroundImage: "/images/slider/top-view-steel-hammer-with-other-construction-elements-tools.jpg",
+      thumbnailImage: "/images/slider/top-view-steel-hammer-with-other-construction-elements-tools.jpg",
+      buttonText: "Browse Construction & Maintenance"
+    },
+    {
       id: 3,
       title: "Corporate & Office Supplies",
-      subtitle: "Quality Corporate & Office Supplies",
-      description: "Professional-grade medical supplies and equipment to support healthcare facilities with reliable, certified products that meet industry standards.",
+      subtitle: "Complete Office Solutions",
+      description: "Professional-grade office supplies including printer cartridges, paper, stationery, and equipment to support your business operations.",
       backgroundImage: "/images/slider/desk-arrangement-with-laptop-notebooks.jpg",
       thumbnailImage: "/images/slider/desk-arrangement-with-laptop-notebooks.jpg",
       buttonText: "Browse Corporate & Office Supplies"
+    },
+    {
+      id: 4,
+      title: "Medical Supplies & PPE",
+      subtitle: "Healthcare & Safety Equipment",
+      description: "High-quality medical supplies and personal protective equipment including disposable gloves, surgical masks, and medical devices for healthcare facilities.",
+      backgroundImage: "/images/slider/a2febbb8c29cae9617056e08d9030046f22cc9d4.png",
+      thumbnailImage: "/images/slider/a2febbb8c29cae9617056e08d9030046f22cc9d4.png",
+      buttonText: "View Medical Supplies & PPE"
+    },
+    {
+      id: 5,
+      title: "Restaurant & Catering Supplies",
+      subtitle: "Professional Kitchen & Food Service Solutions",
+      description: "Complete range of restaurant and catering supplies including food packaging, kitchen equipment, and professional-grade supplies for the food service industry.",
+      backgroundImage: "/images/slider/assortment-antiques-market-objects.jpg",
+      thumbnailImage: "/images/slider/assortment-antiques-market-objects.jpg",
+      buttonText: "Browse Restaurant & Catering Supplies"
     }
   ];
 
@@ -116,9 +135,12 @@ const HeroSlider = () => {
                       <p className="text-sm sm:text-base lg:text-[19px] mb-6 lg:mb-8 text-gray-200 leading-relaxed">
                         {slide.description}
                       </p>
-                      <button className="bg-primary-blue hover:bg-primary-dark text-white px-4 sm:px-6 lg:px-[13px] py-2 sm:py-3 lg:py-[10px] rounded-full font-medium text-sm sm:text-base lg:text-md transition-all duration-300 transform hover:scale-105">
+                      <Link 
+                        href={`/products?category=${encodeURIComponent(slide.title)}`}
+                        className="inline-block bg-primary-blue hover:bg-primary-dark text-white px-4 sm:px-6 lg:px-[13px] py-2 sm:py-3 lg:py-[10px] rounded-full font-medium text-sm sm:text-base lg:text-md transition-all duration-300 transform hover:scale-105"
+                      >
                         {slide.buttonText}
-                      </button>
+                      </Link>
                     </div>
 
                     {/* Thumbnail Navigation - Right Column */}

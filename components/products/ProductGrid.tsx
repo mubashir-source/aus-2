@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Pagination from '../ui/Pagination';
-
+import Image from 'next/image';
 interface Product {
   id: number;
   name: string;
@@ -79,8 +79,20 @@ const ProductGrid = ({ products, searchTerm, selectedCategories }: ProductGridPr
         {displayProducts.map((product) => (
           <div key={product.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
             {/* Product Image */}
-            <div className="aspect-square bg-gray-100 flex items-center justify-center p-8">
-              <div className="text-6xl">{product.image}</div>
+            <div className="h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+              {product.image.startsWith('/') || product.image.startsWith('http') ? (
+                <Image 
+                  src={product.image} 
+                  alt={product.name} 
+                  unoptimized 
+                  quality={100} 
+                  width={300} 
+                  height={200} 
+                  className="w-full h-full object-cover" 
+                />
+              ) : (
+                <div className="text-6xl text-gray-400">{product.image}</div>
+              )}
             </div>
             
             {/* Product Info */}

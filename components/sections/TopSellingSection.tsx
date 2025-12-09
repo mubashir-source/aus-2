@@ -13,6 +13,7 @@ import { CiReceipt } from "react-icons/ci";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Link from 'next/link';
 
 const TopSellingSection = () => {
   const swiperRef = useRef<SwiperType>(null);
@@ -20,38 +21,90 @@ const TopSellingSection = () => {
   const products = [
     {
       id: 1,
-      title: "Majestic Office Bundle",
-      category: "Office Supplies",
-      description: "Bulk office stationery, paper supplies, printers, markers, and furniture add-ons.",
-      image: "/corporateofficesupplies/corporateofficesupplies.png",
+      name: "Disinfectants liquid",
+      category: "Cleaning Products",
+      image: "/cleaningproducts/disinfectantsliquid/disinfectantsliquid1.jpg",
+      description: "Disinfectants liquid is a liquid that is used to disinfect surfaces and objects. It is used to kill bacteria and viruses.",
     },
     {
       id: 2,
-      title: "Restaurant Essentials Kit",
-      category: "Food Service",
-      description: "Bulk office stationery, paper supplies, printers, markers, and furniture add-ons.",
-      image: "/restaurantcateringsupplies/restaurantcateringsupplies.png",
+      name: "Sanitizing wipes",
+      category: "Cleaning Products",
+      image: "/cleaningproducts/sanitizingwipes/sanitizingwipes1.png",
+      description: "Sanitizing wipes are a type of cleaning product that is used to disinfect surfaces and objects. It is used to kill bacteria and viruses."
     },
     {
       id: 3,
-      title: "Construction Safety Pack",
-      category: "Safety Equipment",
-      description: "Bulk office stationery, paper supplies, printers, markers, and furniture add-ons.",
-      image: "/constructionmaintenance/constructionmaintenance.png",
+      name: "Safety Gloves",
+      category: "Construction & Maintenance",
+      image: "/constructionmaintenance/safetygloves/safetygloves1.jpg",
+      description: "Automatic digital blood pressure monitor with memory function, large display, and WHO classification indicator."
     },
     {
       id: 4,
-      title: "Premium Salon Starter Pack",
-      category: "Salon Supplies",
-      description: "Bulk office stationery, paper supplies, printers, markers, and furniture add-ons.",
-      image: "/medicalsupplies/medicalsupplies.png",
+      name: "Safety Helmets",
+      category: "Construction & Maintenance",
+      image: "/constructionmaintenance/safetyhelmets/safetyhelmets1.jpg",
+      description: "Cordless power drill with multiple bits, carrying case, and long-lasting battery. Ideal for professional use."
     },
     {
       id: 5,
-      title: "Medical Equipment Bundle",
-      category: "Healthcare",
-      description: "Essential medical supplies and equipment for healthcare facilities.",
-      image: "/cleaningproducts/cleaningproducts.png",
+      name: "Printer Cartridges",
+      category: "Corporate & Office Supplies",
+      image: "/corporateofficesupplies/printercartridges/printercartridges.jpg",
+      description: "High-performance business laptop with Intel i5 processor, 8GB RAM, 256GB SSD, and 14-inch display."
+    },
+    {
+      id: 6,
+      name: "Printer Paper",
+      category: "Corporate & Office Supplies",
+      image: "/corporateofficesupplies/printerpaper/printerpaper.png",
+      description: "Printer paper is a type of paper that is used to print on. It is used to print on paper."
+    },
+    {
+      id: 7,
+      name: "Disposable Gloves",
+      category: "Medical Supplies & PPE",
+      image: "/medicalsupplies/disposablegloves/nitrile.png",
+      description: "Disposable gloves are a type of glove that is used to protect the hands from bacteria and viruses. It is used to protect the hands from bacteria and viruses.",
+      types: [
+        {
+          name: "Nitrile",
+          image: "/medicalsupplies/disposablegloves/nitrile.png",
+          description: "Powder-free nitrile gloves, latex-free"
+        },
+        {
+          name: "Vinyl",
+          image: "/medicalsupplies/disposablegloves/vinyl.png",
+          description: "Cost-effective vinyl gloves for light-duty use"
+        },
+        {
+          name: "Rubber",
+          image: "/medicalsupplies/disposablegloves/rubber.png",
+          description: "Rubber gloves for light-duty use"
+        }
+      ]
+    },
+    {
+      id: 8,
+      name: "Surgical Masks",
+      category: "Medical Supplies & PPE",
+      image: "/medicalsupplies/surgicalmasks.png",
+      description: "Surgical masks are a type of mask that is used to protect the face and nose from bacteria and viruses. It is used to protect the face and nose from bacteria and viruses."
+    },
+    {
+      id: 9,
+      name: "Foil & Plastic Wrap",
+      category: "Restaurant & Catering Supplies",
+      image: "/restaurantcateringsupplies/foilandplasticwrap/foilandplasticwrap1.png",
+      description: "Foil and plastic wrap are a type of packaging that is used to wrap food and other items. It is used to wrap food and other items."
+    },
+    {
+      id: 10,
+      name: "To-go boxes, paper bags",
+      category: "Restaurant & Catering Supplies",
+      image: "/restaurantcateringsupplies/togoboxes/togoboxes1.jpg",
+      description: "To-go boxes and paper bags are a type of packaging that is used to wrap food and other items. It is used to wrap food and other items."
     }
   ];
 
@@ -71,9 +124,9 @@ const TopSellingSection = () => {
             </h2>
           </div>
           <div className="hidden md:block">
-            <button className="bg-primary-dark hover:bg-primary-blue text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-medium transition-all duration-300 text-sm lg:text-base">
-              View All Categories
-            </button>
+            <Link href="/products" className="bg-primary-dark hover:bg-primary-blue text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-medium transition-all duration-300 text-sm lg:text-base">
+              View All Products
+            </Link>
           </div>
         </div>
 
@@ -111,7 +164,7 @@ const TopSellingSection = () => {
                   <div className="relative h-36 sm:h-40 lg:h-48 overflow-hidden">
                     <Image
                       src={product.image}
-                      alt={product.title}
+                      alt={product.name}
                       fill
                       className="object-cover transition-transform duration-300 hover:scale-110"
                     />
@@ -126,7 +179,7 @@ const TopSellingSection = () => {
                     </div>
                     
                     <h3 className="text-sm sm:text-base lg:text-[18px] font-bold text-gray-900 mb-2 lg:mb-3 leading-tight">
-                      {product.title}
+                      {product.name}
                     </h3>
                     <p className="text-gray-600 text-xs lg:text-[14px] leading-relaxed line-clamp-2">
                       {product.description}

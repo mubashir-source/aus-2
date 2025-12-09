@@ -20,9 +20,7 @@ const ProductFilters = ({
     'Medical Supplies & PPE',
     'Restaurant & Catering Supplies',
     'Cleaning Products',
-    'Construction & Maintenance',
-    'Industrial Equipment',
-    'Technology Solutions'
+    'Construction & Maintenance'
   ];
 
   const handleCategoryChange = (category: string, checked: boolean) => {
@@ -62,7 +60,7 @@ const ProductFilters = ({
         <label className="block text-sm font-medium text-gray-700 mb-3">
           Categories
         </label>
-        <div className="grid grid-cols-1 gap-2 p-4 border border-gray-200 rounded-lg bg-gray-50 max-h-64 overflow-y-auto">
+        <div className="grid grid-cols-1 gap-2  overflow-y-auto">
           {categories.map((category) => (
             <label key={category} className="flex items-center cursor-pointer p-2 hover:bg-white rounded transition-colors">
               <input

@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="col-span-1 d:col-span-2">
             {/* Logo */}
             <div className="flex items-center mb-6">
-<Image src="/logo03.png" alt="Logo" width={100} height={100} />
+<Image src="/logo03.png" alt="Logo" width={100} height={100} unoptimized quality={100} />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Alpha Universal Supplies is a trusted wholesale distributor providing 

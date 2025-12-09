@@ -3,40 +3,34 @@ import Link from 'next/link';
 const ProductsSection = () => {
   const productCategories = [
     {
-      title: "Office Supplies",
-      description: "Complete range of office essentials including stationery, furniture, and equipment.",
-      image: "/corporateofficesupplies/corporateofficesupplies.png",
-      items: ["Stationery", "Office Furniture", "Electronics", "Printing Supplies"]
+      title: "Cleaning Products",
+      description: "Industrial and commercial cleaning solutions for all surfaces and environments.",
+      image: "/cleaningproducts/cleaningproducts.png",
+      items: ["Disinfectants Liquid", "Sanitizing Wipes", "Industrial Cleaners", "Janitorial Supplies"]
     },
     {
-      title: "Industrial Equipment",
-      description: "Heavy-duty industrial equipment and machinery for various industrial applications.",
-      image: "/restaurantcateringsupplies/restaurantcateringsupplies.png",
-      items: ["Machinery", "Tools", "Safety Equipment", "Maintenance Supplies"]
-    },
-    {
-      title: "Medical Supplies",
-      description: "High-quality medical equipment and supplies for healthcare facilities.",
-      image: "/medicalsupplies/medicalsupplies.png",
-      items: ["Medical Devices", "Consumables", "Safety Gear", "Laboratory Equipment"]
-    },
-    {
-      title: "Construction Materials",
-      description: "Durable construction materials and tools for building and infrastructure projects.",
+      title: "Construction & Maintenance",
+      description: "Professional tools and safety equipment for construction and maintenance work.",
       image: "/constructionmaintenance/constructionmaintenance.png",
-      items: ["Building Materials", "Construction Tools", "Safety Equipment", "Hardware"]
+      items: ["Safety Gloves", "Safety Helmets", "Construction Tools", "Maintenance Supplies"]
     },
     {
-      title: "Technology Solutions",
-      description: "Latest technology products including computers, networking, and software solutions.",
-      image: "/cleaningproducts/cleaningproducts.png",
-      items: ["Computers", "Networking", "Software", "Accessories"]
+      title: "Corporate & Office Supplies",
+      description: "Complete range of office essentials including stationery, equipment, and supplies.",
+      image: "/corporateofficesupplies/corporateofficesupplies.png",
+      items: ["Printer Cartridges", "Printer Paper", "Office Equipment", "Stationery"]
     },
     {
-      title: "Cleaning Supplies",
-      description: "Professional cleaning products and equipment for commercial and industrial use.",
-      image: "/cleaningproducts/cleaningproducts.png",
-      items: ["Cleaning Chemicals", "Equipment", "Janitorial Supplies", "Maintenance Tools"]
+      title: "Medical Supplies & PPE",
+      description: "High-quality medical equipment and personal protective equipment for healthcare.",
+      image: "/medicalsupplies/medicalsupplies.png",
+      items: ["Disposable Gloves", "Surgical Masks", "Medical Devices", "Healthcare Supplies"]
+    },
+    {
+      title: "Restaurant & Catering Supplies",
+      description: "Professional kitchen equipment and catering essentials for food service industry.",
+      image: "/restaurantcateringsupplies/restaurantcateringsupplies.png",
+      items: ["Foil & Plastic Wrap", "To-go Boxes", "Kitchen Equipment", "Food Service Supplies"]
     }
   ];
 

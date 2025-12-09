@@ -35,6 +35,8 @@ const Navigation = () => {
                   width={100} 
                   height={100} 
                   className="w-20 h-20 object-contain"
+                  unoptimized
+                  quality={100}
                 />
               </Link>
             </div>
