@@ -168,7 +168,7 @@ const Navigation = () => {
                   href="/vendor-registration"
                   className="w-full bg-primary-dark hover:bg-white text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-200 block text-center"
                 >
-                  Vendor Registration
+                  Vendor Registrations
                 </Link>
               </div>
             </div>
